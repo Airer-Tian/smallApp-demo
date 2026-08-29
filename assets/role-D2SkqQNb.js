@@ -1,1 +1,0 @@
-import{aL as s}from"./index-D4u8kJnp.js";const l=e=>s.get("/roles",{params:e}),a=()=>s.get("/roles/simple"),n=e=>s.post("/roles",e),r=(e,o)=>s.put(`/roles/${e}`,o),p=e=>s.delete("/roles",{data:e}),c=e=>s.get(`/roles/${e}/menus`),u=(e,o)=>s.put(`/roles/${e}/menus`,o);export{n as a,u as b,p as d,c as g,a as l,l as p,r as u};
