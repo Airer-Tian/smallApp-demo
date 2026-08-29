@@ -1,7 +1,7 @@
 // 纯前端 demo 的「伪后端」数据层：首次运行把种子数据写入 localStorage，之后以 localStorage 为准。
 // 所有增删改查都落 localStorage，刷新不丢，体验接近真实系统。
 
-const STORAGE_KEY = 'smallapp_demo_v1'
+const STORAGE_KEY = 'smallapp_demo_v2'
 
 function pad(n) { return n < 10 ? '0' + n : '' + n }
 function fmt(d) {
@@ -55,11 +55,10 @@ function buildSeed() {
   ]
 
   // 菜单：type 1=目录 2=页面 3=按钮；routeComponent 带 /index 以匹配 /src/views/**/index.vue
+  // 注：首页/个人中心为静态页（首页固定在侧边栏顶部、个人中心在顶栏头像下拉），
+  //     不放入后端菜单树；关于系统需排在菜单最底部。
   const menus = [
-    { id: 101, type: 2, parentId: 0, name: '首页', icon: 'HomeFilled', routePath: '/home', routeName: 'Home', routeComponent: 'home/home', status: 1, sort: 1 },
-    { id: 102, type: 2, parentId: 0, name: '个人中心', icon: 'User', routePath: '/userCenter', routeName: 'UserCenter', routeComponent: 'userCenter/index', status: 1, sort: 2 },
-    { id: 103, type: 2, parentId: 0, name: '关于系统', icon: 'InfoFilled', routePath: '/about', routeName: 'About', routeComponent: 'about/about', status: 1, sort: 3 },
-    { id: 1, type: 1, parentId: 0, name: '系统管理', icon: 'Setting', routePath: '', routeName: '', routeComponent: '', status: 1, sort: 4, children: [
+    { id: 1, type: 1, parentId: 0, name: '系统管理', icon: 'Setting', routePath: '', routeName: '', routeComponent: '', status: 1, sort: 1, children: [
       { id: 10, type: 2, parentId: 1, name: '用户管理', icon: 'User', routePath: '/system/user', routeName: 'SystemUser', routeComponent: 'system/user/index', status: 1, sort: 1,
         children: [
           { id: 1011, type: 3, parentId: 10, name: '新增', perm: 'sys:user:add', status: 1, sort: 1 },
@@ -78,7 +77,8 @@ function buildSeed() {
         { id: 61, type: 2, parentId: 60, name: '操作日志', icon: 'List', routePath: '/system/log/operLog', routeName: 'OperLog', routeComponent: 'system/log/operLog', status: 1, sort: 1 },
         { id: 62, type: 2, parentId: 60, name: '登录日志', icon: 'Clock', routePath: '/system/log/loginLog', routeName: 'LoginLog', routeComponent: 'system/log/loginLog', status: 1, sort: 2 }
       ]}
-    ]}
+    ]},
+    { id: 103, type: 2, parentId: 0, name: '关于系统', icon: 'InfoFilled', routePath: '/about', routeName: 'About', routeComponent: 'about/about', status: 1, sort: 2 }
   ]
 
   const dicts = [
@@ -109,12 +109,12 @@ function buildSeed() {
     loginTime: fmt(now - i * 7200000 - Math.random() * 3600000), status: 1, msg: '登录成功'
   }))
 
-  // 角色-菜单分配（叶子菜单id集合）：所有角色均含 首页/个人中心/关于，保证基础页面可达
-  const leafIds = [101, 102, 103, 10, 20, 30, 40, 50, 61, 62]
+  // 角色-菜单分配（叶子菜单id集合）：所有角色均含 关于 等基础页面，保证基础可达
+  const leafIds = [103, 10, 20, 30, 40, 50, 61, 62]
   const roleMenus = {
     1: leafIds,
-    2: [101, 102, 103, 10, 20, 30, 40, 50],
-    3: [101, 102, 103, 61, 62]
+    2: [103, 10, 20, 30, 40, 50],
+    3: [103, 61, 62]
   }
 
   return { users, roles, depts, menus, dicts, dictItems, operLogs, loginLogs, roleMenus }

@@ -11,7 +11,10 @@ export const staticRoutes = [
     name: 'Layout',
     component: Layout,
     redirect: '/home',
-    children: []
+    children: [
+      { path: 'home', name: 'Home', component: () => import('@/views/home/home.vue'), meta: { title: '首页' } },
+      { path: 'userCenter', name: 'UserCenter', component: () => import('@/views/userCenter/index.vue'), meta: { title: '个人中心' } }
+    ]
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/error/NotFound.vue'), meta: { title: '404' } }
 ]
