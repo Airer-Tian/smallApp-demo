@@ -4,6 +4,12 @@
 数据保存在 `localStorage`，刷新后依然存在。无需任何服务端、数据库或 Redis，可直接部署为静态站点
 （GitHub Pages、Render Static Site、Vercel、Nginx 静态目录等）。
 
+## 在线演示（GitHub Pages）
+
+访问地址：<https://airer-tian.github.io/smallApp-demo/>
+
+> 该演示站由仓库 **`gh-pages`** 分支托管。默认账号见下方。
+
 ## 默认账号
 
 | 用户名 | 密码 | 角色 |
@@ -37,7 +43,7 @@ npm run preview    # 预览构建产物
 
 ## 数据重置
 
-清空浏览器 `localStorage` 中键 `smallapp_demo_v1` 即可恢复初始种子数据。
+清空浏览器 `localStorage` 中键 `smallapp_demo_v2` 即可恢复初始种子数据。
 
 ## 与后端版的区别
 
