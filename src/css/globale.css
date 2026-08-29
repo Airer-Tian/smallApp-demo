@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+}
+
+/* 全局 Element Plus 主题色默认值(玫红方案)。
+   实际由主题 store 以行内 CSS 变量覆盖,此处仅作无 JS 时的回退 */
+:root {
+  --el-color-primary: #e11d48;
+  --el-color-primary-light-3: #ea617f;
+  --el-color-primary-light-5: #f08ea4;
+  --el-color-primary-light-7: #f6bbc8;
+  --el-color-primary-light-8: #f9d2da;
+  --el-color-primary-light-9: #fce8ed;
+  --el-color-primary-dark-2: #b4173a;
+  --el-color-success: #10b981;
+  --el-color-success-light-3: #67d3ae;
+  --el-color-success-light-5: #9fe5ca;
+  --el-color-success-light-7: #cdf2e2;
+  --el-color-success-light-8: #e2f7ee;
+  --el-color-success-light-9: #eafaf5;
+  --el-color-success-dark-2: #0d9467;
+  --el-color-warning: #f59e0b;
+  --el-color-danger: #ef4444;
+
+  --app-sb-bg: linear-gradient(180deg, #ffffff 0%, #fdf1f3 100%);
+  --app-sb-text: #4b4b61;
+  --app-sb-hover-bg: #fdeef1;
+  --app-sb-hover-text: #e11d48;
+  --app-sb-active-bg: linear-gradient(90deg, #fce8ed 0%, #fdeef1 100%);
+  --app-sb-active-text: #e11d48;
+  --app-sb-bar: linear-gradient(180deg, #e11d48, #fb7185);
+  --app-accent: #e11d48;
+  --app-accent2: #2563eb;
+  --app-logo-from: #e11d48;
+  --app-logo-to: #fb7185;
+  --app-btn-gradient: linear-gradient(135deg, #e11d48 0%, #fb7185 100%);
+  --app-btn-gradient-hover: linear-gradient(135deg, #f22a56 0%, #fb8396 100%);
+  --app-btn-shadow: rgba(225, 29, 72, 0.45);
+}
+
+/* 全局主按钮：随主题变量渐变，亮眼立体 */
+.el-button--primary {
+  border: none !important;
+  background-image: var(--app-btn-gradient) !important;
+  box-shadow: 0 4px 14px -4px var(--app-btn-shadow);
+  transition: all 0.2s ease;
+}
+.el-button--primary:hover {
+  background-image: var(--app-btn-gradient-hover, var(--app-btn-gradient)) !important;
+  box-shadow: 0 6px 20px -4px var(--app-btn-shadow);
+  transform: translateY(-1px);
+}
+.el-button--primary.is-plain,
+.el-button--primary.is-link,
+.el-button--primary.is-text {
+  background-image: none !important;
+  box-shadow: none !important;
+}
