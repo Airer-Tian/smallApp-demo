@@ -1,0 +1,1 @@
+import{aL as e}from"./index-D4u8kJnp.js";const a=s=>e.get("/users",{params:s}),o=s=>e.get(`/users/${s}`),u=s=>e.post("/users",s),d=(s,r)=>e.put(`/users/${s}`,r),c=s=>e.delete("/users",{data:s}),p=s=>e.put("/users/password",s),n=s=>e.put(`/users/${s}/resetPassword`);export{u as a,p as c,c as d,o as g,a as p,n as r,d as u};
