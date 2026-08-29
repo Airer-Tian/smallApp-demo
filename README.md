@@ -10,6 +10,38 @@
 
 > 该演示站由仓库 **`gh-pages`** 分支托管。默认账号见下方。
 
+## 界面截图
+
+登录页（验证码登录）：
+
+![登录页](docs/screenshots/00-login.png)
+
+首页工作台：
+
+![首页](docs/screenshots/01-home.png)
+
+系统管理各列表页：
+
+| 用户管理 | 角色管理 |
+| --- | --- |
+| ![用户管理](docs/screenshots/02-user.png) | ![角色管理](docs/screenshots/03-role.png) |
+
+| 菜单管理 | 部门管理 |
+| --- | --- |
+| ![菜单管理](docs/screenshots/04-menu.png) | ![部门管理](docs/screenshots/05-dept.png) |
+
+| 字典管理 | 操作日志 |
+| --- | --- |
+| ![字典管理](docs/screenshots/06-dict.png) | ![操作日志](docs/screenshots/07-operlog.png) |
+
+| 登录日志 | 个人中心 |
+| --- | --- |
+| ![登录日志](docs/screenshots/08-loginlog.png) | ![个人中心](docs/screenshots/10-usercenter.png) |
+
+关于系统：
+
+![关于系统](docs/screenshots/09-about.png)
+
 ## 默认账号
 
 | 用户名 | 密码 | 角色 |
