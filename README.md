@@ -1,26 +1,34 @@
-# SmallApp 前端演示版（纯前端 / 无后端）
+# SmallApp · Vue3 中后台权限管理系统（纯前端演示版）
 
-这是一个**完全运行在浏览器内**的 SmallApp 管理后台演示版：所有接口都由前端内置的「伪后端」拦截，
-数据保存在 `localStorage`，刷新后依然存在。无需任何服务端、数据库或 Redis，可直接部署为静态站点
-（GitHub Pages、Render Static Site、Vercel、Nginx 静态目录等）。
+> 开箱即用的 Vue3 + Element Plus 管理后台，内置 **RBAC 权限、多角色、验证码登录、动态菜单、标签页**。零后端、零数据库、零 Redis，clone 即跑，已部署在线可体验。
 
-## 在线演示（GitHub Pages）
+![Vue 3](https://img.shields.io/badge/Vue-3.5-brightgreen) ![Vite](https://img.shields.io/badge/Vite-6-blueviolet) ![Element Plus](https://img.shields.io/badge/Element%20Plus-2.9-409EFF) ![Pinia](https://img.shields.io/badge/Pinia-3-orange) ![Vue Router](https://img.shields.io/badge/Vue%20Router-4-42b883) ![Axios](https://img.shields.io/badge/Axios-1.9-007ec6) ![Vitest](https://img.shields.io/badge/Vitest-3-6ba81b) ![License](https://img.shields.io/badge/License-Apache--2.0-red)
 
-访问地址：<https://airer-tian.github.io/smallApp-demo/>
+在线阅读/Demo：<https://airer-tian.github.io/smallApp-demo/>
 
-> 该演示站由仓库 **`gh-pages`** 分支托管。默认账号见下方。
+---
 
-## 界面截图
-
-登录页（验证码登录）：
+**进入系统可直接体验**｜演示账号：`admin` / `123456`
 
 ![登录页](docs/screenshots/00-login.png)
 
-首页工作台：
+## ✨ 核心亮点
+
+- 🔐 **多角色权限（RBAC）**：超级管理员 / 普通用户 / 审计员，不同角色看到不同菜单
+- 🎛️ **按钮级权限**：页面内操作按钮按权限显隐
+- 🖥️ **验证码登录**：SVG 图形验证码（纯前端生成与校验）
+- 🧭 **动态菜单 + 标签页**：按角色动态注册路由、可拖拽/关闭的页签
+- 🧩 **完整业务模块**：用户 / 角色 / 菜单 / 部门 / 字典 / 操作日志 / 登录日志 / 个人中心
+- ⚡ **零依赖部署**：数据存 `localStorage`，无服务端，静态托管即可上线
+- ✅ **含单元测试**：Vitest，10 个用例全过
+
+## ✨ 界面预览
+
+**首页工作台**
 
 ![首页](docs/screenshots/01-home.png)
 
-系统管理各列表页：
+**系统管理各列表页**
 
 | 用户管理 | 角色管理 |
 | --- | --- |
@@ -38,11 +46,19 @@
 | --- | --- |
 | ![登录日志](docs/screenshots/08-loginlog.png) | ![个人中心](docs/screenshots/10-usercenter.png) |
 
-关于系统：
+**关于系统**
 
 ![关于系统](docs/screenshots/09-about.png)
 
-## 默认账号
+## 🚀 快速开始
+
+```bash
+npm install
+npm run dev      # 开发预览 http://localhost:5173
+npm run build    # 产出 dist/ 静态资源
+```
+
+### 默认账号
 
 | 用户名 | 密码 | 角色 |
 | --- | --- | --- |
@@ -52,16 +68,16 @@
 
 > 演示版统一口令为 `123456`，仅用于体验；真实部署请使用后端版本并启用强密码策略。
 
-## 本地运行
+## 🧰 技术栈
 
-```bash
-npm install
-npm run dev        # 开发预览 http://localhost:5173
-npm run build      # 产出 dist/ 静态资源
-npm run preview    # 预览构建产物
-```
+- **框架**：Vue 3 + Vite 6 + Vue Router 4
+- **UI**：Element Plus 2.9
+- **状态管理**：Pinia 3（持久化）
+- **请求**：Axios 1.9
+- **测试**：Vitest 3
+- **Mock**：内置前端伪后端（`src/mock/`）
 
-## 部署为静态站点
+## 🛠 部署为静态站点
 
 构建产物在 `dist/`，任意静态托管直接托管该目录即可（使用 hash 路由，无需服务端 rewrite）。
 
